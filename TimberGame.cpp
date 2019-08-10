@@ -273,9 +273,10 @@ int main()
 		Event event;
 		while (window.pollEvent(event))							//The pollEvent function puts data into the event object, which describes an operating system event,
 		{														//such as a key press, key release, mouse movement, mouse click, game controller action,
-			if (event.type == Event::KeyReleased && !paused) {	//or something that happened to the window itself.
+			if (event.type == Event::KeyReleased && !paused) 
+			{	//or something that happened to the window itself.
 				//listen for key presses again
-				acceptInput == true;
+				acceptInput = true;
 
 				//hide axe
 				spriteAxe.setPosition(2000,
@@ -310,12 +311,11 @@ int main()
 			spritePlayer.setPosition(580, 720);
 			acceptInput = true;
 		}
-
-		//wrap the player controls to make sure we are accepting input
+			//wrap the player controls to make sure we are accepting input
 		if (acceptInput)
 		{
-			//more code coming next ...
-			//first handle accpeting the right cursor key
+				//more code coming next ...
+				//first handle accpeting the right cursor key
 			if (Keyboard::isKeyPressed(Keyboard::Right))
 			{
 				//make sure the player is on the right
@@ -359,7 +359,7 @@ int main()
 
 				spritePlayer.setPosition(580, 720);
 
-				//up[date branches
+				//update branches
 				updateBranches(score);
 
 				//set the log flying to the left
@@ -372,8 +372,6 @@ int main()
 				chop.play();
 			}
 		}
-
-
 
 		/*
 		********************************
