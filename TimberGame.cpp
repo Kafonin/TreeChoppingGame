@@ -41,7 +41,7 @@ int main()
 	
 	
 	//load a graphic into the texture
-	textureBackground.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\background.png");
+	textureBackground.loadFromFile("graphics\\background.png");
 
 	
 	
@@ -61,17 +61,17 @@ int main()
 	
 	
 	//make a tree sprite
-	Texture textureTree;					//object instantiated
-	textureTree.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\tree.png"); //load the graphic through this path
-	Sprite spriteTree;						//object instantiated from the class
-	spriteTree.setTexture(textureTree);		//sets the tree graphic
-	spriteTree.setPosition(810, 0);			// set the position of the tree graphic
+	Texture textureTree;																		//object instantiated
+	textureTree.loadFromFile("graphics\\tree.png");	//load the graphic through this path
+	Sprite spriteTree;																			//object instantiated from the class
+	spriteTree.setTexture(textureTree);															//sets the tree graphic
+	spriteTree.setPosition(810, 0);																// set the position of the tree graphic
 
 	
 											
 	//floating bee
 	Texture textureBee;
-	textureBee.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\bee.png");
+	textureBee.loadFromFile("graphics\\bee.png");
 	Sprite spriteBee;
 	spriteBee.setTexture(textureBee);
 	spriteBee.setPosition(0, 800);
@@ -88,7 +88,7 @@ int main()
 	Texture textureCloud;
 
 	//load one texture file
-	textureCloud.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\cloud.png");
+	textureCloud.loadFromFile("graphics\\cloud.png");
 
 	//create 3 NEW sprites with the SAME texture file
 	Sprite spriteCloud1;
@@ -148,7 +148,7 @@ int main()
 
 	//set chosen fonts path
 	Font font;
-	font.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\fonts\\KOMIKAP_.ttf");
+	font.loadFromFile("fonts\\KOMIKAP_.ttf");
 
 	//set the font to our message
 	messageText.setFont(font);
@@ -183,7 +183,7 @@ int main()
 
 	//Prepare 5 branches
 	Texture textureBranch;
-	textureBranch.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\branch.png");
+	textureBranch.loadFromFile("graphics\\branch.png");
 	//set texture for each branch sprite
 	for (int i = 0; i < NUM_BRANCHES; i++)
 	{
@@ -205,7 +205,7 @@ int main()
 
 	//prepare he player
 	Texture texturePlayer;
-	texturePlayer.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\player.png");
+	texturePlayer.loadFromFile("graphics\\player.png");
 	Sprite spritePlayer;
 	spritePlayer.setTexture(texturePlayer);
 	spritePlayer.setPosition(580, 720);
@@ -215,14 +215,14 @@ int main()
 
 	//prepare teh gravestone
 	Texture textureRIP;
-	textureRIP.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\rip.png");
+	textureRIP.loadFromFile("graphics\\rip.png");
 	Sprite spriteRIP;
 	spriteRIP.setTexture(textureRIP);
 	spriteRIP.setPosition(600, 860);
 
 	//prepare the axe
 	Texture textureAxe;
-	textureAxe.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\axe.png");
+	textureAxe.loadFromFile("graphics\\axe.png");
 	Sprite spriteAxe;
 	spriteAxe.setTexture(textureAxe);
 	spriteAxe.setPosition(700, 830);
@@ -233,7 +233,7 @@ int main()
 
 	//prepare the flying log
 	Texture textureLog;
-	textureLog.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\graphics\\log.png");
+	textureLog.loadFromFile("graphics\\log.png");
 	Sprite spriteLog;
 	spriteLog.setTexture(textureLog);
 	spriteLog.setPosition(810, 720);
@@ -249,18 +249,18 @@ int main()
 
 	//prepare the sound
 	SoundBuffer chopBuffer;
-	chopBuffer.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\sound\\chop.wav");
+	chopBuffer.loadFromFile("sound\\chop.wav");
 	Sound chop;
 	chop.setBuffer(chopBuffer);
 
 	SoundBuffer deathBuffer;
-	deathBuffer.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\sound\\death.wav");
+	deathBuffer.loadFromFile("sound\\death.wav");
 	Sound death;
 	death.setBuffer(deathBuffer);
 
 	//out of time
 	SoundBuffer ootBuffer;
-	ootBuffer.loadFromFile("C:\\Users\\kafon\\source\\repos\\timber3\\sound\\out_of_time.wav");
+	ootBuffer.loadFromFile("sound\\out_of_time.wav");
 	Sound outOfTime;
 	outOfTime.setBuffer(ootBuffer);
 	
@@ -311,7 +311,8 @@ int main()
 			spritePlayer.setPosition(580, 720);
 			acceptInput = true;
 		}
-			//wrap the player controls to make sure we are accepting input
+		
+		//wrap the player controls to make sure we are accepting input
 		if (acceptInput)
 		{
 				//more code coming next ...
@@ -343,8 +344,8 @@ int main()
 				//play chop sound
 				chop.play();
 			}
+			
 			//handle the left cursor key
-
 			if (Keyboard::isKeyPressed(Keyboard::Left))
 			{
 				//make sure the player is on the left
@@ -374,9 +375,9 @@ int main()
 		}
 
 		/*
-		********************************
-		update the scene here
-		********************************
+		**************************************
+				Update the scene here
+		**************************************
 		*/
 		
 		if (!paused)
@@ -386,22 +387,22 @@ int main()
 			Time deltaTime = clock.restart();
 
 			//subtract from the amount of time remaining
-			timeRemaining -= deltaTime.asSeconds();				//subtract time the player has left by however long the previous frame took to execute this code
+			timeRemaining -= deltaTime.asSeconds();					//subtract time the player has left by however long the previous frame took to execute this code
 			//size up the timebar
-			timeBar.setSize(Vector2f(timerBarWidthPerSecond *	//adjust time bar. the X value of vector2f is initialized with timebarwidthpersecond multiplied by timeRemaining
-				timeRemaining, timerBarHeight));				//produces the correct width relative to how long the player has left. height remains same.
+			timeBar.setSize(Vector2f(timerBarWidthPerSecond *		//adjust time bar. the X value of vector2f is initialized with timebarwidthpersecond multiplied by timeRemaining
+				timeRemaining, timerBarHeight));					//produces the correct width relative to how long the player has left. height remains same.
 		 
 
-			if (timeRemaining <= 0.0f)							//test whether time has run out on this condition
+			if (timeRemaining <= 0.0f)								//test whether time has run out on this condition
 			{
 				//pause the game
-				paused = true;									//set pause to true to its the last time the update code is executed
+				paused = true;										//set pause to true to its the last time the update code is executed
 
 				//change message shown to the player
 				messageText.setString("Out of time!!");
 
 				//reposition the text based on its new size
-				FloatRect textRect = messageText.getLocalBounds(); //repeat of the code way above ...
+				FloatRect textRect = messageText.getLocalBounds();	//repeat of the code way above ...
 				messageText.setOrigin(textRect.left +
 					textRect.width / 2.0f,
 					textRect.top +
@@ -416,11 +417,11 @@ int main()
 			if (!beeFlying) {
 				//how fast is the bee
 				srand((int)time(0) * 10);
-				beeSpeed = (rand() % 200) + 200; //generate random int num 
+				beeSpeed = (rand() % 200) + 200;					//generate random int num 
 
 				//altitude of bee
 				srand((int)time(0) * 10);
-				float height = (rand() % 500) + 500; //generate random int like this
+				float height = (rand() % 500) + 500;				//generate random int like this
 				spriteBee.setPosition(2000, height);
 				beeFlying = true;
 			}
@@ -442,7 +443,7 @@ int main()
 
 
 			//set up clouds here
-			//clud 1 
+			//cloud 1 
 			if (!cloud1Flying)
 			{
 				//speed of cloud
@@ -490,7 +491,7 @@ int main()
 					(cloud2Flying * deltaTime.asSeconds()),
 					spriteCloud2.getPosition().y);
 
-				if (spriteCloud2.getPosition().x > 1920) //reached the right edge of screen?
+				if (spriteCloud2.getPosition().x > 1920)						//reached the right edge of screen?
 				{
 					//set it up for a new cloud
 					cloud2Flying = false;
@@ -517,7 +518,7 @@ int main()
 					(cloud3Flying * deltaTime.asSeconds()),
 					spriteCloud3.getPosition().y);
 
-				if (spriteCloud3.getPosition().x > 1920) //reached the right edge of screen?
+				if (spriteCloud3.getPosition().x > 1920)				//reached the right edge of screen?
 				{
 					//set it up for a new cloud
 					cloud3Flying = false;
@@ -525,14 +526,14 @@ int main()
 			}
 
 			//update scpore text here
-			std::stringstream ss;		//instantiate object stringstream as 'ss'
+			std::stringstream ss;										//instantiate object stringstream as 'ss'
 			ss << "Score = " << score;
-			scoreText.setString(ss.str());	//displays/sets the string contained in ss to scoreText
+			scoreText.setString(ss.str());								//displays/sets the string contained in ss to scoreText
 
 			//update branch sprites
 			for (int i = 0; i < NUM_BRANCHES; i++)
 			{
-				float height = i * 150;					//this means that the 1st branch will have a height of 0, the 2nd = 150, and the 6th of 750.
+				float height = i * 150;									//this means that the 1st branch will have a height of 0, the 2nd = 150, and the 6th of 750.
 				if (branchPositions[i] == side::LEFT)
 				{
 					//move sprite to left side
@@ -607,24 +608,20 @@ int main()
 		} //end if (!paused)
 
 		
-		/**********************/
-		/*draw scene***********/
-		/**********************/
+		/**************************
+				Draw scene
+		***************************/
 		
 		
 		
 		//clear everything from the last frame
 		window.clear();
 
-		
-		
-		
+					
 		//IMPORTANT draw game scene here ... IMPORTANT --> ORDER DRAWN IS IMPORTANT! BACKGROUND -> SPRITE1 -> SPRITE2 -> CHARACTER1. ETC.
 		window.draw(spriteBackground);
 
-		
-		
-		
+					
 		//draw the clouds onto the screen here
 		window.draw(spriteCloud1);
 		window.draw(spriteCloud2);
